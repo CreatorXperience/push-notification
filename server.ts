@@ -3,10 +3,12 @@ import express from "express"
 import admin from "./firebase"
 import { createClient } from "@supabase/supabase-js";
 import dotenv from "dotenv"
+import cors from "cors"
 dotenv.config()
 const app = express();
 
 app.use(express.json());
+app.use(cors())
 
 
 const supabase = createClient(process.env.SUPABASE_URL as string, process.env.SUPABASE_SERVICE_ROLE_KEY as string);
